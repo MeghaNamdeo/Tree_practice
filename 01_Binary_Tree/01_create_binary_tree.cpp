@@ -54,3 +54,49 @@ int main()
 
     return 0;
 }
+
+----------------------------------
+//another method 
+#include <bits/stdc++.h>
+using namespace std;
+
+class Node
+{
+    public :
+    int data;
+    Node* left, *right;
+    
+    Node(int value)
+    {
+        data=value;
+        left=right = NULL;
+        
+    }
+};
+Node* Binary_Tree()
+{
+    int x;
+    cin>>x;
+    if(x==-1)return NULL;
+    Node*temp = new Node(x);
+    
+    //left side creation
+    cout<<"Enter the left child of "<<x<<" : ";
+    temp->left=Binary_Tree();
+    
+    //right side creation
+    cout<<"Enter the right child of "<<x<<" : ";
+    temp->right=Binary_Tree();
+    return temp;
+    
+}
+int main()
+{
+    
+    cout<<"enter root data :";
+    Node* root;
+    root=Binary_Tree();
+    return 0;
+} //TC:O(n)
+//SC:O(h)
+//worst case SC:O(n)
